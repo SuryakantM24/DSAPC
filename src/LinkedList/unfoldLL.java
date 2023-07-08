@@ -1,8 +1,38 @@
 package LinkedList;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class unfoldLL {
+
+       public static Node<Integer> CreateLL(int n){
+
+              if(n==0){
+                     return null;
+              }
+
+              Scanner s=new Scanner(System.in);
+              int data=1;
+              Node<Integer> head=null,tail=null;
+              while(n>0){
+                     Node<Integer> newNode =new Node<>(data);
+                     if(head==null){
+                            head=newNode;
+                            tail=newNode;
+                     }
+                     else{
+                            tail.next=newNode;
+                            tail=tail.next;
+                     }
+                     n--;
+                     data++;
+
+
+              }
+              return head;
+
+       }
+
 
        public static Node<Integer> reverse(Node<Integer> head){
               if(head==null||head.next==null){
@@ -65,10 +95,12 @@ public class unfoldLL {
               return head;
        }
        public static void main (String[] args){
-               Node<Integer> head= inputLL();
-             //  print(head);
-               Node<Integer> head2=unfold(head);
-               print(head2);
+              Scanner s=new Scanner(System.in);
+              int n=s.nextInt();
+              Node<Integer> head= CreateLL(n);
+              //  print(head);
+              // Node<Integer> head2=unfold(head);
+               print(head);
 
            }
 
