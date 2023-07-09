@@ -27,7 +27,7 @@ public class unfoldLL {
 
               }
 
-              for(int i=0;i<k-2;i++){
+              for(int i=1;i<k;i++){
                      temp=temp.next;
 
               }
@@ -37,7 +37,6 @@ public class unfoldLL {
 
               newNode.next=temp.next;
               temp.next=newNode;
-
               return head;
        }
        public static Node<Integer> CreateLL(int n){
@@ -135,7 +134,7 @@ public class unfoldLL {
 //              int n=s.nextInt();
               Node<Integer> head= inputLL();
               print(head);
-              Node<Integer> head2=insertAtKth(head,2,2);
+              Node<Integer> head2=insertAtKth(head,8,2);
 
 
               //Node<Integer> head= CreateLL(n);
@@ -146,6 +145,9 @@ public class unfoldLL {
            }
 
 }
+
+
+
 
 
 
