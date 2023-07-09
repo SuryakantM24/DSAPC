@@ -5,6 +5,41 @@ import java.util.Scanner;
 
 public class unfoldLL {
 
+       public static int getSize(Node<Integer> head){
+              int count=0;
+              Node<Integer> temp=head;
+              while(temp!=null){
+                     count++;
+                     temp=temp.next;
+              }
+              return count;
+       }
+
+       public static Node<Integer> insertAtKth(Node<Integer> head,int data,int k){
+
+              Node<Integer> newNode=new Node<>(data);
+
+              Node<Integer> temp=head;
+              if(k==0){
+                     newNode.next=head;
+                     head=newNode;
+                     return head;
+
+              }
+
+              for(int i=0;i<k-2;i++){
+                     temp=temp.next;
+
+              }
+              if(temp==null){
+                     return head;
+              }
+
+              newNode.next=temp.next;
+              temp.next=newNode;
+
+              return head;
+       }
        public static Node<Integer> CreateLL(int n){
 
               if(n==0){
@@ -70,9 +105,10 @@ public class unfoldLL {
        }
 
        public static void print(Node<Integer> head){
-              while(head!=null) {
-                     System.out.print(head.data+" ");
-                     head=head.next;
+              Node<Integer> temp=head;
+              while(temp!=null) {
+                     System.out.print(temp.data+" ");
+                     temp=temp.next;
               }
 
        }
@@ -95,13 +131,21 @@ public class unfoldLL {
               return head;
        }
        public static void main (String[] args){
-              Scanner s=new Scanner(System.in);
-              int n=s.nextInt();
-              Node<Integer> head= CreateLL(n);
+//              Scanner s=new Scanner(System.in);
+//              int n=s.nextInt();
+              Node<Integer> head= inputLL();
+              print(head);
+              Node<Integer> head2=insertAtKth(head,2,2);
+
+
+              //Node<Integer> head= CreateLL(n);
               //  print(head);
               // Node<Integer> head2=unfold(head);
-               print(head);
+               print(head2);
 
            }
 
 }
+
+
+
